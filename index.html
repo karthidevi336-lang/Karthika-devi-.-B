@@ -1,123 +1,147 @@
 <!-- index.html -->
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Smart Machine Portfolio</title>
-
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
-
   <header>
-
     <nav>
-
       <div class="logo">Smart Machines</div>
-
       <ul id="menu">
-
         <li><a href="#home">Home</a></li>
-
         <li><a href="#skills">Skills</a></li>
-
         <li><a href="#projects">Projects</a></li>
-
         <li><a href="#contact">Contact</a></li>
-
       </ul>
-
       <button id="menu-toggle">☰</button>
-
     </nav>
-
   </header>
 
   <section id="home">
-
     <h1>Welcome to My Smart Machine Portfolio</h1>
-
     <p>Showcasing AI and Machine Learning Projects</p>
-
   </section>
 
   <section id="skills">
-
     <h2>Skills</h2>
-
     <ul>
-
       <li>Machine Learning</li>
-
       <li>Deep Learning</li>
-
       <li>Time-Series Analysis</li>
-
       <li>JavaScript & Python Integration</li>
-
     </ul>
-
   </section>
 
   <section id="projects">
-
     <h2>Highlighted Projects</h2>
-
     <div class="portfolio-content">
-
       <div class="row">
-
         <img src="img/machine_project.jpg" alt="Project Image">
-
         <h3>Stock Market Forecasting</h3>
-
         <p>AI-powered time-series predictions using ARIMA and Neural Networks.</p>
-
       </div>
-
       <div class="row">
-
         <img src="img/forecast.jpg" alt="Project Image">
-
         <h3>Inventory Demand Forecasting</h3>
-
         <p>Smart demand prediction with SVM and XGBoost.</p>
-
       </div>
-
     </div>
-
   </section>
 
   <section id="contact">
-
     <h2>Contact Me</h2>
-
     <form>
-
       <input type="text" placeholder="Your Name" required>
-
       <input type="email" placeholder="Your Email" required>
-
       <textarea placeholder="Your Message"></textarea>
-
       <button type="submit">Send</button>
-
     </form>
-
   </section>
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
+/* style.css */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #eef2f5;
+  color: #222;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #151e3d;
+  color: #fff;
+  padding: 0.8em 2em;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1em;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+  #menu-toggle {
+    display: block;
+  }
+}
+
+.portfolio-content {
+  display: flex;
+  gap: 2em;
+}
+
+.row {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #2222;
+  padding: 1em;
+  text-align: center;
+}
+// script.js
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('click', () => {
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Example: Dynamic text
+const heading = document.querySelector("#home h1");
+let phrases = ["Welcome to My Smart Machine Portfolio", "AI & ML Future Projects", "Ready for Tomorrow’s Tech"];
+let idx = 0;
+setInterval(() => {
+  heading.textContent = phrases[idx];
+  idx = (idx + 1) % phrases.length;
+}, 5000);
